@@ -6,6 +6,12 @@ class People {
         const PeopleData = await response.json();        
         return PeopleData            
     }
+
+    async getPeopleById(Id){        
+        const response = await fetch(`http://localhost:3001/people/${Id}`)
+        const PeopleData = await response.json();         
+        return PeopleData  
+    }
     
 }
 
