@@ -1,0 +1,17 @@
+.container {
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.cursor {
+  cursor: pointer;
+}
