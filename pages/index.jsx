@@ -1,7 +1,14 @@
-import Home from "./Home/home"
+import Home from "./home"
+
+import 'bootstrap/dist/css/bootstrap.css'
+
 
 function HomePage() {
-  return <Home />
+  return (
+    <div >
+      <Home />
+    </div>
+  )
 }
 
 export default HomePage
