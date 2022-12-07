@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import people from "../../../actions/people"
 import Task from './task'
-import styles from '../style.module.css'
-
 
 
 const ProfileData = () => {
