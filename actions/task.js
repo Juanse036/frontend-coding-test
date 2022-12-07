@@ -7,6 +7,10 @@ class Task {
         const TaskData = await response.json();         
         return TaskData  
     }
+
+    async updateTaskById(Id, Data){
+        
+    }
     
 }
 
