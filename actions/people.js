@@ -14,7 +14,6 @@ class People {
     }
 
     async updatePeopleDataById(Id, Data){
-        console.log({Id, Data})
         const response = await fetch(`http://localhost:3001/people/${Id}`, {
             method: 'PUT',
             headers: {
@@ -23,7 +22,6 @@ class People {
             // body: '{"name": "Lisa", "salary": "8000"}',
             body: JSON.stringify(Data)
         });
-        console.log({response})
     }
 }
 
