@@ -65,8 +65,8 @@ const EditProfile = ({data}) => {
 
       if (loading) return (
         <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
-            <div class="spinner-border" role="status">
-                <span class="sr-only"></span>
+            <div className="spinner-border" role="status">
+                <span className="sr-only"></span>
             </div>
         </div>
     )
@@ -76,36 +76,36 @@ const EditProfile = ({data}) => {
             <h1>EDIT PROFILE</h1>
             <form className='w-75' onSubmit={UpdateData}>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Full Name</label>
+                    <label >Full Name</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='fullName' value={peopleData.fullName} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Age</label>
+                    <label >Age</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='age' value={peopleData.age} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Occupation</label>
+                    <label >Occupation</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='occupation' value={peopleData.occupation} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Nickname</label>
+                    <label >Nickname</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='nickname' value={peopleData.nickname} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Gender</label>
+                    <label >Gender</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='gender' value={peopleData.gender} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Picture</label>
+                    <label >Picture</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='picture' value={peopleData.picture} onChange={handleInputChange} required/>                    
                     <small className="form-text text-muted">If you dont have an URL image you must upload the image to a hosting service or image sharing site in to obtain a URL.</small>
                 </div>
                 <button type="submit" className="btn btn-dark mt-4">Submit</button>
             </form>
             { textAlert !== "" ?
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div className="alert alert-warning alert-dismissible fade show" role="alert">
                 {textAlert}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={() => {setTextAlert("")}}>
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={() => {setTextAlert("")}}>
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>

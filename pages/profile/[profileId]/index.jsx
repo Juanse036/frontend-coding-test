@@ -31,8 +31,8 @@ const ProfileData = () => {
 
     if (loading) return (
         <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
-            <div class="spinner-border" role="status">
-                <span class="sr-only"></span>
+            <div className="spinner-border" role="status">
+                <span className="sr-only"></span>
             </div>
         </div>
     )

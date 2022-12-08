@@ -56,8 +56,8 @@ const Task = () => {
 
        if (loading) return (
         <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
-            <div class="spinner-border" role="status">
-                <span class="sr-only"></span>
+            <div className="spinner-border" role="status">
+                <span className="sr-only"></span>
             </div>
         </div>
     )
@@ -82,7 +82,7 @@ const Task = () => {
                                     <p className="mb-1">{el.description}</p>
                                     <div className="form-check ">
                                         <input className={`form-check-input`} type="checkbox" name="completed" value={el.completed} id={el.id} checked={el.completed} onChange={handleInputChange}/>
-                                        <label className="form-check-label" for="flexCheckDefault">
+                                        <label className="form-check-label">
                                             {el.completed ? 'Mark as not completed' : 'Mark as completed'}
                                         </label>
                                     </div>                                    

@@ -66,8 +66,8 @@ const EditTasks = () => {
 
         if (loading) return (
             <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
-                <div class="spinner-border" role="status">
-                    <span class="sr-only"></span>
+                <div className="spinner-border" role="status">
+                    <span className="sr-only"></span>
                 </div>
             </div>
         )
@@ -77,25 +77,25 @@ const EditTasks = () => {
             <h1>EDIT TASK</h1>
             <form className='w-75' onSubmit={UpdateData}>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Title</label>
+                    <label >Title</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='title' value={taskData.title} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Description</label>
+                    <label >Description</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='description' value={taskData.description} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">Star Date</label>
+                    <label >Star Date</label>
                     <input type="date" className="form-control" placeholder="Enter email" name='startDate' value={taskData.startDate} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value={taskData.completed} name='completed' checked={taskData.completed} onChange={handleInputChange}/>
-                    <label class="form-check-label" for="flexCheckChecked">
+                    <input className="form-check-input" type="checkbox" value={taskData.completed} name='completed' checked={taskData.completed} onChange={handleInputChange}/>
+                    <label className="form-check-label">
                         Completed
                     </label>
                 </div>
                 <div className="form-group mt-3">
-                    <label for="exampleInputEmail1">End Date</label>
+                    <label >End Date</label>
                     <input type="date" className="form-control" placeholder="Enter email" name='endDate' min={taskData.startDate} max={todayDate} value={endDateValue} onChange={handleInputChange} disabled={!taskData.completed}/>                    
                 </div>
                 <div className='d-flex gap-4 mt-4'>
