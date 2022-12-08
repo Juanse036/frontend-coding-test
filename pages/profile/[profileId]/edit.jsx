@@ -63,7 +63,13 @@ const EditProfile = ({data}) => {
 
 
 
-    if (loading) return <p>Loading...</p>
+      if (loading) return (
+        <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    )
 
     return (
         <div className='d-flex align-items-center flex-column mt-5'>
@@ -92,6 +98,7 @@ const EditProfile = ({data}) => {
                 <div className="form-group mt-3">
                     <label for="exampleInputEmail1">Picture</label>
                     <input type="text" className="form-control" placeholder="Enter email" name='picture' value={peopleData.picture} onChange={handleInputChange} required/>                    
+                    <small className="form-text text-muted">If you dont have an URL image you must upload the image to a hosting service or image sharing site in to obtain a URL.</small>
                 </div>
                 <button type="submit" className="btn btn-dark mt-4">Submit</button>
             </form>
