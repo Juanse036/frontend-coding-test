@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useEffect, useState } from "react"
 
 import styles from './style.module.css'
@@ -6,6 +7,7 @@ import people from "../../actions/people"
 
 const Home = () => {
 
+    const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [peopleData, setpeopleData] = useState([])    
     const [sortDescending, setSortDescending]     = useState(true)
@@ -45,14 +47,20 @@ const Home = () => {
         setSortDescending(!sortDescending)
     }
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return (
+        <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    )
 
     return (
         <>
-        <div className={styles.container}>
+        <div className={`m-auto mt-5 d-flex justify-content-center align-items-center`}>
             <button type="button" className="btn btn-dark" onClick={sortData}>Sort By Age</button>                  
         </div>
-        <div className={styles.container}>
+        <div className={`w-75 m-auto mt-5 d-flex justify-content-center align-items-center`}>
             <table className="table table-light table-striped table-hover text-center justify-center">
                 <thead className="table-dark">
                     <tr>
@@ -65,7 +73,7 @@ const Home = () => {
                 <tbody>
                 {peopleData.map(data => {                
                     return (
-                    <tr key={data.id} className={styles.cursor}>
+                    <tr key={data.id} className={styles.cursor} onClick={() => router.push(`/profile/${data.id}`)}>
                         <td ><img src={data.picture} alt={data.nickname} className={styles.img}/></td>
                         <td>{data.fullName}</td>
                         <td>{data.age}</td>
