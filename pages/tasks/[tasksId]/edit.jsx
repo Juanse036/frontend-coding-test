@@ -8,21 +8,24 @@ const EditTasks = () => {
 
     const router = useRouter()
     const taskId = router.query.tasksId
+    var todayDate = new Date().toISOString().slice(0, 10);
     
 
-    const [loading, setLoading] = useState(true)    
+    const [loading, setLoading] = useState(true)
     const [taskData, setTaskData] = useState({
         title: '',
         description: '',
         completed: false,
         startDate:'',
-        endDate:'',
+        endDate:null,
         personId: ''
-    })        
+    })      
+    const [endDateValue, setEndDateValue] = useState("")
     
     const getTaskData = async(taskId) => {
-        const data = await task.getTaskById(taskId)           
-        setTaskData(data[0]);         
+        const data = await task.getTaskById(taskId)               
+        setTaskData(data[0]);  
+        data[0].completed ? setEndDateValue(data[0].endDate) : setEndDateValue("")
     }
 
     useEffect(() => {
@@ -35,24 +38,39 @@ const EditTasks = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setTaskData({
-          ...taskData,
-          [name]: value,
-        });
+        name == "endDate" ? setEndDateValue(value): ""
+        
+        if (name == "completed"){
+            if (taskData.completed){
+                setTaskData({...taskData, endDate:null, completed: !taskData.completed})
+                setEndDateValue("")
+            }else {
+                setTaskData({...taskData, endDate:endDateValue, completed: !taskData.completed})
+            }
+            
+        
+        }else {
+            setTaskData({
+                ...taskData,
+                [name]: value,
+            });
+        }
+        
       }; 
 
       const UpdateData = async(e) => {
         e.preventDefault()
-
-        await taskId.updateTaskDataById(profileId, peopleData)
-        router.push(`/profile/${profileId}`)
+        await task.updateTaskById(taskId, taskData)
+        router.push(`/profile/${taskData.personId}`)
         }
-      
 
-
-
-
-    if (loading) return <p>Loading...</p>
+        if (loading) return (
+            <div className='w-100 min-vh-100 d-flex justify-content-center align-items-center'>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        )
 
     return (
         <div className='d-flex align-items-center flex-column mt-5'>
@@ -68,7 +86,7 @@ const EditTasks = () => {
                 </div>
                 <div className="form-group mt-3">
                     <label for="exampleInputEmail1">Star Date</label>
-                    <input type="text" className="form-control" placeholder="Enter email" name='startDate' value={taskData.startDate} onChange={handleInputChange} required/>                    
+                    <input type="date" className="form-control" placeholder="Enter email" name='startDate' value={taskData.startDate} onChange={handleInputChange} required/>                    
                 </div>
                 <div className="form-check mt-3">
                     <input class="form-check-input" type="checkbox" value={taskData.completed} name='completed' checked={taskData.completed} onChange={handleInputChange}/>
@@ -78,9 +96,12 @@ const EditTasks = () => {
                 </div>
                 <div className="form-group mt-3">
                     <label for="exampleInputEmail1">End Date</label>
-                    <input type="text" className="form-control" placeholder="Enter email" name='endDate' value={taskData.endDate} onChange={handleInputChange} required={taskId.completed} disabled={!taskId.completed}/>                    
+                    <input type="date" className="form-control" placeholder="Enter email" name='endDate' min={taskData.startDate} max={todayDate} value={endDateValue} onChange={handleInputChange} disabled={!taskData.completed}/>                    
                 </div>
-                <button type="submit" className="btn btn-dark mt-4">Submit</button>
+                <div className='d-flex gap-4 mt-4'>
+                    <button type="submit" className="btn btn-dark ">Submit</button>
+                    <button type="button" className="btn btn-danger" onClick={() => router.push(`/profile/${taskData.personId}`)}>Cancel</button>
+                </div>
             </form>            
       </div>
     )
