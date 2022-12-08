@@ -3,7 +3,7 @@
     {
       "id": 1,
       "fullName": "John Doe",
-      "age": 32,
+      "age": "32",
       "occupation": "Software Developer",
       "nickname": "Johnny",
       "gender": "Male",
@@ -105,9 +105,9 @@
       "id": 2,
       "title": "Task 2",
       "description": "This is the second task on the list.",
-      "completed": true,
+      "completed": false,
       "startDate": "2022-12-04",
-      "endDate": "2022-12-05",
+      "endDate": null,
       "personId": 2
     },
     {
@@ -159,9 +159,9 @@
       "id": 8,
       "title": "Task 8",
       "description": "This is the eighth task on the list.",
-      "completed": true,
+      "completed": false,
       "startDate": "2022-12-04",
-      "endDate": "2022-12-08",
+      "endDate": null,
       "personId": 8
     },
     {
@@ -239,9 +239,9 @@
       "id": 17,
       "title": "Task 17",
       "description": "This is the seventeenth task on the list.",
-      "completed": true,
-      "startDate": "2022-12-04",
-      "endDate": "2022-12-05",
+      "completed": false,
+      "startDate": "2022-12-01",
+      "endDate": null,
       "personId": 7
     },
     {
